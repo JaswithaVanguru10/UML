@@ -1,0 +1,16 @@
+@startuml
+actor user
+participant "mobile app" as app
+
+user -> app : 1 : user logins to the app
+app -> user : 2 : the app welcomes
+user -> app : 3 : gives login details
+app -> app : 4 : it validates
+app -> user : 5 : user is valid user
+user -> app : 6 : he checks the updated movies
+app -> user : 7 : gives him movies in nearest theaters
+user -> app : 8 : selected tickets
+app -> app : 9 : validates the tickets
+user -> app : 10 : signing out
+
+@enduml

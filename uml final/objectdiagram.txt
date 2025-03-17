@@ -1,0 +1,33 @@
+@startuml
+
+object user {
+  username = "jjaswitha"
+}
+
+object ticket {
+  ticketId = 12
+}
+
+object showtime {
+  time = "7 PM"
+}
+
+object movie {
+  title = "Avengers"
+}
+
+object payment {
+  method = "online"
+}
+
+object theater {
+  name = "ramtheatre"
+}
+
+user --> ticket : books
+ticket --> showtime : for
+showtime --> movie : hosts
+payment --> ticket : Paid via
+theater --> movie : hosts
+
+@enduml

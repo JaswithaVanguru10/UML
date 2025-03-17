@@ -1,0 +1,17 @@
+@startuml
+[*] --> login
+
+login --> [*] : invalid
+
+login --> total_seats : valid
+
+total_seats --> available_seats
+total_seats --> seats_added
+
+available_seats --> selected_seats
+seats_added --> selected_seats
+
+selected_seats --> make_payment
+
+make_payment --> [*]
+@enduml

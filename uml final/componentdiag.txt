@@ -1,0 +1,32 @@
+@startuml
+
+package "Application Layer" {
+  [web applications]
+  [mobile application]
+}
+
+package "Controllers" {
+  [ticket controller]
+  [user controller]
+  [payment controller]
+}
+
+package "External Systems" {
+  [payment gateway]
+}
+
+package "Database" {
+  [booking database]
+}
+
+[web applications] --> [user controller] : uses
+[mobile application] --> [user controller] : uses
+
+[user controller] --> [ticket controller] : +container
+[user controller] --> [payment controller] : +container
+
+[ticket controller] --> [booking database] : +reads and writes to
+[payment controller] --> [payment gateway] : +uses
+[payment controller] --> [booking database] : +reads and writes to
+
+@enduml

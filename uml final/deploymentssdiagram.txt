@@ -1,0 +1,34 @@
+@startuml
+
+node "Client device" {
+  [user interface]
+}
+
+node "web server" {
+  [booking system]
+}
+
+node "data base server" {
+  [ticket database]
+}
+
+node "payment system" {
+}
+
+node "payment gateway" {
+}
+
+Client_device -down-> user_interface : +access
+user_interface -down-> booking_system : +interact
+booking_system -down-> ticket_database : +store data
+booking_system -right-> payment_system : +process payment
+payment_system -right-> payment_gateway : +connect
+
+Client_device --> web_server : <<deploy>>
+web_server --> data_base_server : <<deploy>>
+user_interface --> booking_system : <<deploy>>
+booking_system --> payment_system : <<deploy>>
+payment_system --> payment_gateway : <<deploy>>
+ticket_database --> booking_system : <<deploy>>
+
+@enduml

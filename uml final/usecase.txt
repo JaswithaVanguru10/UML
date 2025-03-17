@@ -1,0 +1,25 @@
+@startuml
+actor admin
+actor user
+
+package "payment processing" {
+    usecase "make payment" as MP
+    usecase "refund payment" as RP
+}
+
+package "user management" {
+    usecase "register" as REG
+    usecase "login" as LOGIN
+    usecase "logout" as LOGOUT
+    usecase "update details" as UPDATE
+}
+
+admin --> MP
+admin --> RP
+
+user --> MP : +needs
+user --> REG : +do
+user --> LOGIN
+user --> LOGOUT
+user --> UPDATE
+@enduml

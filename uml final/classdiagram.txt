@@ -1,0 +1,38 @@
+@startuml
+
+class User {
+  -String userId
+  -String name
+  -String email
+  +register()
+  +login()
+  +logout()
+}
+
+class Customer {
+  -String customerId
+  -String name
+  -String email
+  +register()
+  +login()
+}
+
+class Admin {
+  -String adminId
+  -String role
+  +manageUsers()
+  +login()
+  +logout()
+}
+
+class Authentication {
+  +Attribute1
+  +validateCredentials()
+  +resetPassword()
+}
+
+User <|-- Customer
+User <|-- Admin
+User --> Authentication : Uses
+
+@enduml

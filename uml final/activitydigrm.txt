@@ -1,0 +1,18 @@
+@startuml
+
+start
+
+:login to the app;
+
+if (correct details?) then (yes)
+  :logged in;
+  :Search for nearby theaters;
+  :select show;
+  :select seats;
+  :make payment;
+  stop
+else (no)
+  stop
+endif
+
+@enduml
